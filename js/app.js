@@ -41,93 +41,75 @@ function contactMe() {
         "_blank"
     );
 }
-// 项目详情
-function openProject(type) {
-    const modal =
-        document.getElementById(
-            "projectModal"
-        );
-    const content =
-        document.getElementById(
-            "projectContent"
-        );
-    let html = "";
-    switch (type) {
-        case "wx":
-            html = `
-            <h1>微信小程序开发</h1>
-            <br>
-            <p>✔ 商城小程序</p >
-            <p>✔ 点餐系统</p >
-            <p>✔ 预约系统</p >
-            <p>✔ 企业展示小程序</p >
-            <br>
-            <p>开发周期：3~15天</p >
-            `;
-            break;
-        case "software":
-            html = `
-            <h1>软件开发</h1>
-            <br>
-            <p>✔ 管理系统开发</p >
-            <p>✔ 自动化工具</p >
-            <p>✔ 桌面软件开发</p >
-            `;
-            break;
-        case "ai":
-            html = `
-            <h1>AI换脸</h1>
-            <br>
-            <p>✔ 视频换脸</p >
-            <p>✔ 直播换脸</p >
-            <p>✔ 多平台兼容</p >
-            `;
-            break;
-        case "gps":
-            html = `
-            <h1>Android + iPhone定位</h1>
-            <br>
-            <p>✔ 实时定位</p >
-            <p>✔ 历史轨迹</p >
-            <p>✔ 设备管理</p >
-            `;
-            break;
-        case "web":
-            html = `
-            <h1>网页搭建</h1>
-            <br>
-            <p>✔ 企业官网</p >
-            <p>✔ 展示网站</p >
-            <p>✔ 响应式网页</p >
-            `;
-            break;
-        case "ios":
-            html = `
-            <h1>苹果软件多开</h1>
-            <br>
-            <p>✔ 一机多号</p >
-            <p>✔ 多账号运行</p >
-            <p>✔ 稳定管理</p >
-            `;
-            break;
-        case "kali":
-            html = `
-            <h1>Kali 收徒</h1>
-            <br>
-            <p>✔ Linux基础</p >
-            <p>✔ 网络安全</p >
-            <p>✔ 渗透测试实战</p >
-            `;
-            break;
-    }
-    content.innerHTML = html;
-    modal.classList.add("open");
+function show(type){
+
+let html='';
+
+if(type=='wx'){
+html=`
+<h1>微信小程序开发</h1>
+<p>开发周期：3~15天</p >
+<p>支持商城、预约、工具类小程序。</p >
+`;
 }
-function closeProject() {
-    document
-        .getElementById(
-            "projectModal"
-        )
+
+if(type=='soft'){
+html=`
+<h1>软件开发</h1>
+<p>Windows软件、管理系统、自动化工具。</p >
+`;
+}
+
+if(type=='ai'){
+html=`
+<h1>AI换脸</h1>
+<p>支持视频换脸、直播换脸、多平台兼容。</p >
+`;
+}
+
+if(type=='gps'){
+html=`
+<h1>Android+iPhone定位</h1>
+<p>实时定位、轨迹记录、安全守护。</p >
+`;
+}
+
+if(type=='web'){
+html=`
+<h1>网页搭建</h1>
+<p>个人网站、企业官网、展示页面开发。</p >
+`;
+}
+
+if(type=='ios'){
+html=`
+<h1>苹果软件多开</h1>
+<p>支持多个账号独立运行。</p >
+`;
+}
+
+if(type=='kali'){
+html=`
+<h1>Kali 收徒</h1>
+<p>网络安全基础、渗透测试、实战教学。</p >
+`;
+}
+
+html+=`
+<br><br>
+<button onclick="closeWin()">
+关闭
+</button>
+`;
+
+document.getElementById('detail').style.display='block';
+document.getElementById('content').innerHTML=html;
+
+}
+
+function closeWin(){
+document.getElementById('detail').style.display='none';
+}
         .classList.remove(
             "open"
         );
