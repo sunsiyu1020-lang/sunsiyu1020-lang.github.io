@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>思宇 · 个人主页</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+background:#050816;
+color:#fff;
+font-family:-apple-system,BlinkMacSystemFont,sans-serif;
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+}
+
+body::before{
+content:"";
+position:absolute;
+width:600px;
+height:600px;
+background:#00c3ff;
+filter:blur(250px);
+opacity:.2;
+animation:move 8s infinite alternate;
+}
+
+@keyframes move{
+from{
+transform:translate(-200px,-100px);
+}
+to{
+transform:translate(200px,100px);
+}
+}
+
+.card{
+width:90%;
+max-width:420px;
+background:rgba(255,255,255,.06);
+backdrop-filter:blur(20px);
+border:1px solid rgba(255,255,255,.1);
+border-radius:25px;
+padding:40px 30px;
+text-align:center;
+box-shadow:0 0 40px rgba(0,195,255,.2);
+z-index:2;
+}
+
+.avatar{
+width:120px;
+height:120px;
+border-radius:50%;
+border:3px solid #00c3ff;
+margin:auto;
+box-shadow:0 0 25px #00c3ff;
+}
+
+h1{
+margin-top:25px;
+font-size:30px;
+}
+
+.desc{
+margin-top:15px;
+color:#bfc9d4;
+line-height:1.8;
+}
+
+.btn{
+display:block;
+margin-top:20px;
+padding:15px;
+text-decoration:none;
+color:#fff;
+border:1px solid #00c3ff;
+border-radius:15px;
+transition:.3s;
+}
+
+.btn:hover{
+background:#00c3ff;
+color:#000;
+box-shadow:0 0 20px #00c3ff;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<img class="avatar"
+src="https://via.placeholder.com/120">
+
+<h1>思宇</h1>
+
+<div class="desc">
+欢迎来到我的个人主页<br>
+科技 · Python · 创意开发
+</div>
+
+<a class="btn" href="#">我的项目</a>
+
+<a class="btn" href="#">联系我</a>
+
+</div>
+
+</body>
+</html>
