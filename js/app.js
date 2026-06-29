@@ -1,102 +1,85 @@
-const canvas =
-    document.getElementById(
-        "matrix"
-    );
+// 打字机效果
+const texts = [
+    "全栈开发者",
+    "创意科技探索者",
+    "Python 开发",
+    "AI 技术研究",
+    "网络安全爱好者"
+];
 
-const ctx =
-    canvas.getContext("2d");
+let textIndex = 0;
+let charIndex = 0;
+let deleting = false;
 
-canvas.width =
-    window.innerWidth;
+function typeEffect() {
 
-canvas.height =
-    window.innerHeight;
-
-const letters =
-"0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
-const size = 16;
-
-const columns =
-Math.floor(
-    canvas.width / size
-);
-
-const drops = [];
-
-for (
-    let i = 0;
-    i < columns;
-    i++
-) {
-    drops[i] = 1;
-}
-
-function drawMatrix() {
-
-    ctx.fillStyle =
-        "rgba(2,6,23,0.08)";
-
-    ctx.fillRect(
-        0,
-        0,
-        canvas.width,
-        canvas.height
-    );
-
-    ctx.fillStyle =
-        "#00d4ff";
-
-    ctx.font =
-        size +
-        "px monospace";
-
-    for (
-        let i = 0;
-        i < drops.length;
-        i++
-    ) {
-
-        const text =
-            letters[
-                Math.floor(
-                    Math.random() *
-                    letters.length
-                )
-            ];
-
-        ctx.fillText(
-            text,
-            i * size,
-            drops[i] * size
+    const el =
+        document.getElementById(
+            "typing"
         );
 
-        if (
-            drops[i] *
-                size >
-                canvas.height &&
-            Math.random() >
-                0.975
-        ) {
-            drops[i] = 0;
-        }
+    if (!el) return;
 
-        drops[i]++;
+    const current =
+        texts[textIndex];
+
+    if (!deleting) {
+        charIndex++;
+    } else {
+        charIndex--;
     }
+
+    el.innerHTML =
+        current.substring(
+            0,
+            charIndex
+        );
+
+    if (
+        !deleting &&
+        charIndex ===
+            current.length
+    ) {
+        deleting = true;
+        setTimeout(
+            typeEffect,
+            1500
+        );
+        return;
+    }
+
+    if (
+        deleting &&
+        charIndex === 0
+    ) {
+        deleting = false;
+        textIndex++;
+
+        if (
+            textIndex >=
+            texts.length
+        ) {
+            textIndex = 0;
+        }
+    }
+
+    setTimeout(
+        typeEffect,
+        deleting ? 60 : 120
+    );
 }
 
-setInterval(
-    drawMatrix,
-    35
-);
+typeEffect();
 
-window.addEventListener(
-    "resize",
-    () => {
-        canvas.width =
-            window.innerWidth;
+// 联系我按钮
+function copyWechat() {
 
-        canvas.height =
-            window.innerHeight;
-    }
-);
+    navigator.clipboard
+        .writeText(
+            "+1 778 830 0388"
+        );
+
+    alert(
+        "微信号已复制：+1 778 830 0388"
+    );
+}
