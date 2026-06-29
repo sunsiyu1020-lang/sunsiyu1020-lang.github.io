@@ -1,158 +1,334 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>思宇 | 全栈开发者</title>
-
-<link rel="stylesheet" href="css/style.css">
-
-<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+<title>思宇 | 赛博朋克个人官网</title>
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+body{
+    background:#020617;
+    color:#fff;
+    font-family:-apple-system,BlinkMacSystemFont,sans-serif;
+    overflow-x:hidden;
+}
+/* 数字雨 */
+canvas{
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:-3;
+}
+/* 科技网格 */
+.grid{
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:
+    linear-gradient(rgba(0,212,255,.08) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,212,255,.08) 1px,transparent 1px);
+    background-size:50px 50px;
+    transform:perspective(800px) rotateX(70deg);
+    transform-origin:bottom;
+    bottom:-50%;
+    z-index:-2;
+}
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    padding:25px 50px;
+    display:flex;
+    justify-content:space-between;
+    backdrop-filter:blur(20px);
+    border-bottom:1px solid rgba(0,212,255,.2);
+}
+.logo{
+    font-size:40px;
+    font-weight:bold;
+    color:#00d4ff;
+    text-shadow:
+    0 0 20px #00d4ff,
+    0 0 40px #00d4ff;
+}
+.menu a{
+    color:white;
+    text-decoration:none;
+    margin-left:40px;
+    transition:.3s;
+}
+.menu a:hover{
+    color:#00d4ff;
+}
+.hero{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+.avatar{
+    width:280px;
+    height:280px;
+    border-radius:50%;
+    overflow:hidden;
+    border:5px solid #00d4ff;
+    box-shadow:
+    0 0 40px #00d4ff,
+    0 0 80px #00d4ff;
+    animation:glow 3s infinite;
+}
+.avatar img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+@keyframes glow{
+    50%{
+        box-shadow:
+        0 0 60px #00d4ff,
+        0 0 120px #00d4ff;
+    }
+}
+h1{
+    margin-top:30px;
+    font-size:80px;
+    color:#8fdfff;
+    text-shadow:
+    0 0 20px #00d4ff;
+}
+.desc{
+    margin-top:20px;
+    font-size:28px;
+    color:#00d4ff;
+}
+.skill{
+    margin-top:25px;
+    font-size:22px;
+    color:#ccc;
+}
+.btn{
+    margin-top:40px;
+    padding:18px 50px;
+    border:2px solid #00d4ff;
+    color:#00d4ff;
+    text-decoration:none;
+    border-radius:40px;
+    box-shadow:0 0 20px #00d4ff;
+}
+section{
+    padding:120px 10%;
+}
+.title{
+    text-align:center;
+    font-size:50px;
+    color:#9fe8ff;
+    margin-bottom:60px;
+}
+.cards{
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(300px,1fr));
+    gap:35px;
+}
+.card{
+    padding:40px;
+    background:rgba(255,255,255,.03);
+    border:1px solid rgba(0,212,255,.3);
+    border-radius:25px;
+    backdrop-filter:blur(20px);
+    transition:.3s;
+}
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:
+    0 0 40px rgba(0,212,255,.5);
+}
+.card h2{
+    color:#00d4ff;
+    margin-bottom:20px;
+}
+.card p{
+    line-height:1.8;
+    color:#b6b6b6;
+}
+.about{
+    text-align:center;
+    line-height:2;
+    font-size:22px;
+}
+footer{
+    text-align:center;
+    padding:40px;
+    border-top:1px solid rgba(0,212,255,.2);
+    color:#999;
+}
+@media(max-width:768px){
+    .avatar{
+        width:200px;
+        height:200px;
+    }
+    h1{
+        font-size:50px;
+    }
+    .menu{
+        display:none;
+    }
+}
+</style>
 </head>
-
 <body>
-
-<div id="particles-js"></div>
-
+<canvas id="matrix"></canvas>
+<div class="grid"></div>
 <nav>
-
-<div class="logo">
-思宇
-</div>
-
+<div class="logo">SY</div>
 <div class="menu">
-
 <a href=" ">首页</a >
-<a href="#project">我的项目</a >
+<a href="#project">项目</a >
 <a href="#about">关于我</a >
-<a href="weixin://dl/chat?+17788300388">
+<a href="https://wa.me/17788300388">
 联系我
 </a >
-
 </div>
-
 </nav>
-
-<section id="home">
-
-<div class="avatar-box">
-
+<div class="hero">
+<div class="avatar">
 < img src="img/avatar.jpg">
-
 </div>
-
 <h1>思宇</h1>
-
-<h2>全栈开发者 & 创意科技探索者</h2>
-
-<p>
-Python ｜ Android ｜ iOS ｜ AI ｜ Web ｜ Kali
-</p >
-
+<div class="desc">
+全栈开发者 · AI探索者 · 网络安全研究者
+</div>
+<div class="skill">
+Python · Web · Android · iOS · AI · Kali Linux
+</div>
 <a class="btn" href="#project">
 我的项目
 </a >
-
-</section>
-
+</div>
 <section id="project">
-
-<h1>我的项目</h1>
-
-<div class="card-box">
-
+<div class="title">
+我的项目
+</div>
+<div class="cards">
 <div class="card">
 <h2>微信小程序开发</h2>
-<p>定制开发各种小程序</p >
-<button onclick="show('wx')">
-查看详情
-</button>
+<p>
+商城、预约、工具类小程序开发，
+开发周期3-15天。
+</p >
 </div>
-
 <div class="card">
 <h2>软件开发</h2>
-<p>桌面软件与管理系统</p >
-<button onclick="show('soft')">
-查看详情
-</button>
+<p>
+桌面软件、管理系统、
+自动化工具开发。
+</p >
 </div>
-
 <div class="card">
 <h2>AI换脸</h2>
-<p>视频换脸直播兼容</p >
-<button onclick="show('ai')">
-查看详情
-</button>
+<p>
+直播换脸、视频换脸、
+多平台兼容。
+</p >
 </div>
-
 <div class="card">
 <h2>Android+iPhone定位</h2>
-<p>实时定位解决方案</p >
-<button onclick="show('gps')">
-查看详情
-</button>
+<p>
+实时定位、
+历史轨迹、
+设备管理。
+</p >
 </div>
-
 <div class="card">
 <h2>网页搭建</h2>
-<p>企业网站个人官网</p >
-<button onclick="show('web')">
-查看详情
-</button>
+<p>
+企业官网、
+个人主页、
+展示网站开发。
+</p >
 </div>
-
 <div class="card">
 <h2>苹果软件多开</h2>
-<p>一台设备多个账号</p >
-<button onclick="show('ios')">
-查看详情
-</button>
+<p>
+一机多号、
+多账号运行、
+稳定管理。
+</p >
 </div>
-
 <div class="card">
 <h2>Kali 收徒</h2>
-<p>网络安全实战教学</p >
-<button onclick="show('kali')">
-查看详情
-</button>
+<p>
+网络安全、
+渗透测试、
+实战教学。
+</p >
 </div>
-
 </div>
-
 </section>
-
 <section id="about">
-
-<h1>关于我</h1>
-
-<p>
-专注于软件开发、移动应用开发、AI技术、网络安全等领域。
-</p >
-
-<h2>掌握工具</h2>
-
-<p>
-
-Python<br>
-Android Studio<br>
-Xcode<br>
-VS Code<br>
-PyCharm<br>
-Kali Linux<br>
-Docker<br>
-Photoshop<br>
-
-</p >
-
-</section>
-
-<div id="detail">
-
-<div id="content"></div>
-
+<div class="title">
+关于我
 </div>
-
-<script src="js/app.js"></script>
-
+<div class="about">
+专注于 Python、Web、Android、iOS、
+AI技术和网络安全开发。<br><br>
+开发工具：<br>
+Python、VS Code、PyCharm、Docker、
+Android Studio、Xcode、Kali Linux。
+</div>
+</section>
+<footer>
+© 2026 思宇 · All Rights Reserved
+</footer>
+<script>
+const canvas=document.getElementById('matrix');
+const ctx=canvas.getContext('2d');
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+const str='0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+const arr=str.split('');
+const size=16;
+const cols=canvas.width/size;
+const drops=[];
+for(let i=0;i<cols;i++){
+    drops[i]=1;
+}
+function draw(){
+    ctx.fillStyle='rgba(2,6,23,0.08)';
+    ctx.fillRect(0,0,
+    canvas.width,
+    canvas.height);
+    ctx.fillStyle='#00d4ff';
+    ctx.font=size+'px monospace';
+    for(let i=0;i<drops.length;i++){
+        const text=
+        arr[Math.floor(
+        Math.random()*arr.length)];
+        ctx.fillText(
+        text,
+        i*size,
+        drops[i]*size);
+        if(
+        drops[i]*size>
+        canvas.height &&
+        Math.random()>0.975
+        ){
+            drops[i]=0;
+        }
+        drops[i]++;
+    }
+}
+setInterval(draw,35);
+window.onresize=function(){
+    canvas.width=window.innerWidth;
+    canvas.height=window.innerHeight;
+}
+</script>
 </body>
 </html>
