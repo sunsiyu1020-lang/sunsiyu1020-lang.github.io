@@ -6,33 +6,32 @@ const canvas =
 const ctx =
     canvas.getContext("2d");
 
-canvas.width =
-    window.innerWidth;
+function resize() {
 
-canvas.height =
-    window.innerHeight;
+    canvas.width =
+        window.innerWidth;
+
+    canvas.height =
+        window.innerHeight;
+}
+
+resize();
 
 const letters =
 "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-const size = 16;
+const fontSize = 16;
 
-const columns =
+let columns =
 Math.floor(
-    canvas.width / size
+    canvas.width /
+    fontSize
 );
 
-const drops = [];
+let drops =
+Array(columns).fill(1);
 
-for (
-    let i = 0;
-    i < columns;
-    i++
-) {
-    drops[i] = 1;
-}
-
-function drawMatrix() {
+function draw() {
 
     ctx.fillStyle =
         "rgba(2,6,23,0.08)";
@@ -48,7 +47,7 @@ function drawMatrix() {
         "#00d4ff";
 
     ctx.font =
-        size +
+        fontSize +
         "px monospace";
 
     for (
@@ -67,13 +66,13 @@ function drawMatrix() {
 
         ctx.fillText(
             text,
-            i * size,
-            drops[i] * size
+            i * fontSize,
+            drops[i] * fontSize
         );
 
         if (
             drops[i] *
-                size >
+                fontSize >
                 canvas.height &&
             Math.random() >
                 0.975
@@ -86,17 +85,24 @@ function drawMatrix() {
 }
 
 setInterval(
-    drawMatrix,
+    draw,
     35
 );
 
 window.addEventListener(
     "resize",
     () => {
-        canvas.width =
-            window.innerWidth;
 
-        canvas.height =
-            window.innerHeight;
+        resize();
+
+        columns =
+            Math.floor(
+                canvas.width /
+                fontSize
+            );
+
+        drops =
+            Array(columns)
+            .fill(1);
     }
 );
