@@ -1,10 +1,70 @@
+// 黑客开机动画
+const bootLines = [
+    "> INITIALIZING SYSTEM...",
+    "> LOADING MODULES...",
+    "> CHECKING SECURITY...",
+    "> CONNECTING NETWORK...",
+    "> STARTING AI ENGINE...",
+    "> ACCESS GRANTED",
+    "",
+    "> WELCOME BACK, SIYU"
+];
+
+let bootIndex = 0;
+
+function bootAnimation() {
+
+    const text =
+        document.getElementById(
+            "boot-text"
+        );
+
+    if (!text) return;
+
+    if (
+        bootIndex <
+        bootLines.length
+    ) {
+
+        text.innerHTML +=
+            bootLines[
+                bootIndex
+            ] + "<br>";
+
+        bootIndex++;
+
+        setTimeout(
+            bootAnimation,
+            500
+        );
+
+    } else {
+
+        setTimeout(() => {
+
+            document
+                .getElementById(
+                    "boot-screen"
+                )
+                .classList
+                .add(
+                    "boot-hide"
+                );
+
+        }, 1200);
+    }
+}
+
+bootAnimation();
+
+
 // 打字机效果
 const texts = [
     "全栈开发者",
-    "创意科技探索者",
-    "Python 开发",
-    "AI 技术研究",
-    "网络安全爱好者"
+    "Python 开发者",
+    "AI 技术探索者",
+    "网络安全爱好者",
+    "Cyber Security"
 ];
 
 let textIndex = 0;
@@ -52,6 +112,7 @@ function typeEffect() {
         deleting &&
         charIndex === 0
     ) {
+
         deleting = false;
         textIndex++;
 
@@ -70,6 +131,7 @@ function typeEffect() {
 }
 
 typeEffect();
+
 
 // 联系我按钮
 function copyWechat() {
