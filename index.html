@@ -3,117 +3,156 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>思宇 · 个人主页</title>
+<title>思宇 | 全栈开发者</title>
 
-<style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+<link rel="stylesheet" href="css/style.css">
 
-body{
-background:#050816;
-color:#fff;
-font-family:-apple-system,BlinkMacSystemFont,sans-serif;
-min-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-overflow:hidden;
-}
-
-body::before{
-content:"";
-position:absolute;
-width:600px;
-height:600px;
-background:#00c3ff;
-filter:blur(250px);
-opacity:.2;
-animation:move 8s infinite alternate;
-}
-
-@keyframes move{
-from{
-transform:translate(-200px,-100px);
-}
-to{
-transform:translate(200px,100px);
-}
-}
-
-.card{
-width:90%;
-max-width:420px;
-background:rgba(255,255,255,.06);
-backdrop-filter:blur(20px);
-border:1px solid rgba(255,255,255,.1);
-border-radius:25px;
-padding:40px 30px;
-text-align:center;
-box-shadow:0 0 40px rgba(0,195,255,.2);
-z-index:2;
-}
-
-.avatar{
-width:120px;
-height:120px;
-border-radius:50%;
-border:3px solid #00c3ff;
-margin:auto;
-box-shadow:0 0 25px #00c3ff;
-}
-
-h1{
-margin-top:25px;
-font-size:30px;
-}
-
-.desc{
-margin-top:15px;
-color:#bfc9d4;
-line-height:1.8;
-}
-
-.btn{
-display:block;
-margin-top:20px;
-padding:15px;
-text-decoration:none;
-color:#fff;
-border:1px solid #00c3ff;
-border-radius:15px;
-transition:.3s;
-}
-
-.btn:hover{
-background:#00c3ff;
-color:#000;
-box-shadow:0 0 20px #00c3ff;
-}
-</style>
+<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
 </head>
 
 <body>
 
-<div class="card">
+<div id="particles-js"></div>
 
-<img class="avatar"
-src="https://via.placeholder.com/120">
+<nav>
+
+<div class="logo">
+思宇
+</div>
+
+<div class="menu">
+
+<a href=" ">首页</a >
+<a href="#project">我的项目</a >
+<a href="#about">关于我</a >
+<a href="weixin://dl/chat?+17788300388">
+联系我
+</a >
+
+</div>
+
+</nav>
+
+<section id="home">
+
+<div class="avatar-box">
+
+< img src="img/avatar.jpg">
+
+</div>
 
 <h1>思宇</h1>
 
-<div class="desc">
-欢迎来到我的个人主页<br>
-科技 · Python · 创意开发
+<h2>全栈开发者 & 创意科技探索者</h2>
+
+<p>
+Python ｜ Android ｜ iOS ｜ AI ｜ Web ｜ Kali
+</p >
+
+<a class="btn" href="#project">
+我的项目
+</a >
+
+</section>
+
+<section id="project">
+
+<h1>我的项目</h1>
+
+<div class="card-box">
+
+<div class="card">
+<h2>微信小程序开发</h2>
+<p>定制开发各种小程序</p >
+<button onclick="show('wx')">
+查看详情
+</button>
 </div>
 
-<a class="btn" href="#">我的项目</a>
+<div class="card">
+<h2>软件开发</h2>
+<p>桌面软件与管理系统</p >
+<button onclick="show('soft')">
+查看详情
+</button>
+</div>
 
-<a class="btn" href="#">联系我</a>
+<div class="card">
+<h2>AI换脸</h2>
+<p>视频换脸直播兼容</p >
+<button onclick="show('ai')">
+查看详情
+</button>
+</div>
+
+<div class="card">
+<h2>Android+iPhone定位</h2>
+<p>实时定位解决方案</p >
+<button onclick="show('gps')">
+查看详情
+</button>
+</div>
+
+<div class="card">
+<h2>网页搭建</h2>
+<p>企业网站个人官网</p >
+<button onclick="show('web')">
+查看详情
+</button>
+</div>
+
+<div class="card">
+<h2>苹果软件多开</h2>
+<p>一台设备多个账号</p >
+<button onclick="show('ios')">
+查看详情
+</button>
+</div>
+
+<div class="card">
+<h2>Kali 收徒</h2>
+<p>网络安全实战教学</p >
+<button onclick="show('kali')">
+查看详情
+</button>
+</div>
 
 </div>
+
+</section>
+
+<section id="about">
+
+<h1>关于我</h1>
+
+<p>
+专注于软件开发、移动应用开发、AI技术、网络安全等领域。
+</p >
+
+<h2>掌握工具</h2>
+
+<p>
+
+Python<br>
+Android Studio<br>
+Xcode<br>
+VS Code<br>
+PyCharm<br>
+Kali Linux<br>
+Docker<br>
+Photoshop<br>
+
+</p >
+
+</section>
+
+<div id="detail">
+
+<div id="content"></div>
+
+</div>
+
+<script src="js/app.js"></script>
 
 </body>
 </html>
