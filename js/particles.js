@@ -3,7 +3,7 @@ particlesJS(
     {
         particles: {
             number: {
-                value: 100
+                value: 120
             },
 
             color: {
@@ -21,7 +21,8 @@ particlesJS(
             },
 
             size: {
-                value: 3
+                value: 3,
+                random: true
             },
 
             line_linked: {
@@ -29,13 +30,14 @@ particlesJS(
                 distance: 150,
                 color:
                     "#00d4ff",
-                opacity: 0.4,
+                opacity: 0.35,
                 width: 1
             },
 
             move: {
                 enable: true,
-                speed: 2
+                speed: 2,
+                out_mode: "out"
             }
         },
 
@@ -62,7 +64,7 @@ particlesJS(
             modes: {
 
                 repulse: {
-                    distance: 120
+                    distance: 150
                 },
 
                 push: {
