@@ -1,112 +1,156 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>思宇｜赛博朋克个人官网</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>思宇 | 全栈开发者</title>
+
 <link rel="stylesheet" href="css/style.css">
+
 <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
 </head>
+
 <body>
+
 <div id="particles-js"></div>
-<canvas id="matrix"></canvas>
+
 <nav>
+
 <div class="logo">
-SY
+思宇
 </div>
+
 <div class="menu">
+
 <a href=" ">首页</a >
-<a href="#project">项目</a >
+<a href="#project">我的项目</a >
 <a href="#about">关于我</a >
-<a href="https://wa.me/17788300388">
+<a href="weixin://dl/chat?+17788300388">
 联系我
 </a >
+
 </div>
+
 </nav>
+
 <section id="home">
+
 <div class="avatar-box">
+
 < img src="img/avatar.jpg">
+
 </div>
+
 <h1>思宇</h1>
-<h2 id="typing"></h2>
+
+<h2>全栈开发者 & 创意科技探索者</h2>
+
 <p>
-Python · Web · Android · iOS · AI · Kali Linux
+Python ｜ Android ｜ iOS ｜ AI ｜ Web ｜ Kali
 </p >
+
 <a class="btn" href="#project">
 我的项目
 </a >
+
 </section>
+
 <section id="project">
-<h1 class="title">
-我的项目
-</h1>
+
+<h1>我的项目</h1>
+
 <div class="card-box">
-<div class="card" onclick="openProject('wx')">
+
+<div class="card">
 <h2>微信小程序开发</h2>
-<p>商城、工具、预约系统开发</p >
+<p>定制开发各种小程序</p >
+<button onclick="show('wx')">
+查看详情
+</button>
 </div>
-<div class="card" onclick="openProject('software')">
+
+<div class="card">
 <h2>软件开发</h2>
-<p>桌面软件、管理系统开发</p >
+<p>桌面软件与管理系统</p >
+<button onclick="show('soft')">
+查看详情
+</button>
 </div>
-<div class="card" onclick="openProject('ai')">
+
+<div class="card">
 <h2>AI换脸</h2>
-<p>直播换脸、多平台兼容</p >
+<p>视频换脸直播兼容</p >
+<button onclick="show('ai')">
+查看详情
+</button>
 </div>
-<div class="card" onclick="openProject('gps')">
+
+<div class="card">
 <h2>Android+iPhone定位</h2>
 <p>实时定位解决方案</p >
+<button onclick="show('gps')">
+查看详情
+</button>
 </div>
-<div class="card" onclick="openProject('web')">
+
+<div class="card">
 <h2>网页搭建</h2>
-<p>个人网站、企业官网</p >
+<p>企业网站个人官网</p >
+<button onclick="show('web')">
+查看详情
+</button>
 </div>
-<div class="card" onclick="openProject('ios')">
+
+<div class="card">
 <h2>苹果软件多开</h2>
-<p>一机多号、多账号管理</p >
+<p>一台设备多个账号</p >
+<button onclick="show('ios')">
+查看详情
+</button>
 </div>
-<div class="card" onclick="openProject('kali')">
+
+<div class="card">
 <h2>Kali 收徒</h2>
-<p>网络安全与渗透测试</p >
+<p>网络安全实战教学</p >
+<button onclick="show('kali')">
+查看详情
+</button>
 </div>
+
 </div>
+
 </section>
+
 <section id="about">
-<h1 class="title">
-关于我
-</h1>
-<div class="about">
+
+<h1>关于我</h1>
+
 <p>
-专注于：
-Python开发、Web开发、Android开发、iOS开发、
-AI技术、网络安全。
+专注于软件开发、移动应用开发、AI技术、网络安全等领域。
 </p >
-<h3>开发工具</h3>
-<div class="skills">
-<span>Python</span>
-<span>VS Code</span>
-<span>PyCharm</span>
-<span>Android Studio</span>
-<span>Xcode</span>
-<span>Docker</span>
-<span>Kali Linux</span>
-</div>
-</div>
+
+<h2>掌握工具</h2>
+
+<p>
+
+Python<br>
+Android Studio<br>
+Xcode<br>
+VS Code<br>
+PyCharm<br>
+Kali Linux<br>
+Docker<br>
+Photoshop<br>
+
+</p >
+
 </section>
-<div id="projectModal">
-<div class="modal-box">
-<span onclick="closeProject()">
-✕
-</span>
-<div id="projectContent">
+
+<div id="detail">
+
+<div id="content"></div>
+
 </div>
-</div>
-</div>
-<script src="js/particles.js"></script>
-<script src="js/matrix.js"></script>
-<script src="js/app.js"></script>
-</body>
-</html>
 
 <script src="js/app.js"></script>
 
